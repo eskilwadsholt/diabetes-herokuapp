@@ -1,105 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="disable-select">
-  <div id="chart">
-      <div class="verticalSplit upper">
-          <div class="upperChart">
-              <div class="BG-graph yesterday">
-                  <div id="BG-yesterday"></div>
-              </div>
-              <div class="basal-graph">
-                  <div id="basal-yesterday"></div>
-              </div>
-              <div class="food-insulin-graph yesterday">
-                  <div id="food-insulin-yesterday"></div>
-                  <div id="signout">
-                    <a href="/user/signout" class="btn btn--secondary">sign out</a>
-                  </div>
-              </div>
-              <div class="day-title"><div class="day-title text">yesterday</div></div>
-          </div>
-      </div>
-      <div class="verticalSplit lower">
-          <div class="lowerChart">
-              <div class="BG-graph">
-                  <div id="BG-today">
-                      <div id="drift-change-tooltip"></div>
-                  </div>
-              </div>
-              <div class="basal-graph">
-                  <div id="basal-today"></div>
-              </div>
-              <div class="food-insulin-graph">
-                  <div id="food-insulin-today"></div>
-                  <div id="reset-view">&#8635;</div>
-              </div>
-              <div class="day-title"><div class="day-title text">today</div></div>
-          </div>
-      </div>
-      <div class="verticalSplit bottom">
-          <div class="flex container">
-              <div class="BG-stamp"></div>
-              <div class="last-BG-box"></div>
-              <div class="cumCals-box"></div>
-          </div>
-      </div>
-  </div>
-  <div id="data-timestamp">Loading ...</div>
-  <div class="popup" id="stats-popup">
-      <div class="popup-header" id="stats-header">
-          <div class="popup-header title" id="stats-title">
-              <div id="stats-text">Average BG</div>
-              <div id="stats-value">5.2</div>
-          </div>
-          <button class="popup-header close-button">&times;</button>
-      </div>
-      <div class="popup-body" id="stats-histogram"></div>
-      <div class="popup-body" id="stats-body"></div>
-  </div>
-  <div class="popup" id="cals-popup">
-      <div class="popup-header" id="cals-header">
-          <div class="popup-header title" id="cals-title">
-              <div id="cals-text">Cals</div>
-              <div id="cals-value">0000</div>
-          </div>
-          <button class="popup-header close-button">&times;</button>
-      </div>
-      <div class="popup-body" id="cals-body"></div>
-  </div>
-  <div class="popup" id="meal-popup">
-      <div class="popup-header">
-          <div class="popup-header title" id="meal-title">
-              <div id="carbs-text">Meals</div>
-              <div id="carbs-value">000</div>
-          </div>
-          <button class="popup-header close-button">&times;</button>
-      </div>
-      <div class="popup-body" id="meal-body"></div>
-  </div>
-</div>
-<div id="overlay"></div>
-<script src="/static/js/events/keys.js"></script>
-<script src="/static/js/events/mouse.js"> </script>
-<script src="/static/js/events/timers.js"></script>
-<script src="/static/js/chart/chart.js"></script>
-<script src="/static/js/chart/timeaxis.js"></script>
-<script src="/static/js/chart/yaxis.js"></script>
-<script src="/static/js/chart/yrange.js"></script>
-<script src="https://lucid-montalcini-fd6cd7.netlify.app/js/data/data.js"></script>
-<script src="/static/js/chart/path.js"></script>
-<script src="/static/js/helpers.js"></script>
-<script src="/static/js/chart/dots.js"></script>
-<script src="/static/js/chart/steps.js"></script>
-<script src="/static/js/chart/area.js"></script>
-<script src="/static/js/chart/timecursor.js"></script>
-<script src="/static/js/chart/bgstamp.js"></script>
-<script src="/static/js/chart/lastbg.js"></script>
-<script src="/static/js/chart/mealtable.js"></script>
-<script src="/static/js/chart/meals.js"></script>
-<script src="/static/js/chart/bolus.js"></script>
-<script src="/static/js/chart/tempbar.js"></script>
-<script src="/static/js/plot.js"></script>
-<script src="/static/js/chart/cumcals.js"></script>
-<script src="/static/js/fields.js"></script>
+    <div class="card-wrapper">
+        <div class="card">
+            <h1 class="center">Dashboard</h1>
+            <p>
+                <strong>User:</strong> {{ session.user.name }} <br>
+            </p>
+            <div class="center">
+                <a href="/user/signout" class="btn btn--secondary">Log out</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
