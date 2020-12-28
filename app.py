@@ -20,14 +20,24 @@ def login_required(f):
     return redirect('/')
   return wrap
 
+def forward_if_logged_in(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+        return redirect('/dashboard')
+    return f(*args, **kwargs)
+  return wrap
+
 # Routes
 from user import routes
 
 @app.route('/')
+@forward_if_logged_in
 def loginpage():
   return render_template("/login/login.html")
 
 @app.route('/signup/')
+@forward_if_logged_in
 def signuppage():
   return render_template("/login/signup.html")
 

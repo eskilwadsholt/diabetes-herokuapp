@@ -24,8 +24,6 @@ $("form[name=login_form]").submit(function(e) {
   var $error = $form.find(".error");
   var data = $form.serialize();
 
-  console.log(data);
-
   $.ajax({
     url: "/user/login",
     type: "POST",
