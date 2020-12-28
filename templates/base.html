@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="/static/css/normalize.css">
   <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="{{ url_for('static', filename='/js/jquery.js') }}"></script>
 
   <link rel="shortcut icon" href="{{ url_for('static', filename='/ico/screenshot-32x32') }}"/>
   
@@ -15,7 +16,7 @@
   <div class="top-navbar">
     <div class="empty-left-container"></div>
     <h1>Flask Diabetes Tool v1</h1>
-    <div class="dropdown-container">
+    <div class="dropdown-menu">
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
@@ -28,4 +29,7 @@
   {% endblock %}
 
 </body>
+
+<script src="{{ url_for('static', filename='/js/menu.js') }}"></script>
+
 </html>
