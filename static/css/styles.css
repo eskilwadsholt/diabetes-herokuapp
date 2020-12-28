@@ -5,17 +5,17 @@
 /* Setup */
 :root {
   --black: #000000;
-  --almost-black: #263238;
+  --almost-black: #262626;
   --white: #ffffff;
   --almost-white: #FBFBFB;
   --grey-light: #CFD8DC;
-  --grey: #B0BEC5;
-  --grey-medium: #78909C;
-  --grey-dark: #455A64;
-  --primary: #1E88E5;
-  --primary-dark: #1976D2;
-  --secondary: #CFD8DC;
-  --secondary-dark: #B0BEC5;
+  --grey: #B0B0B0;
+  --grey-medium: #909090;
+  --grey-dark: #505050;
+  --primary: #12548d;
+  --primary-dark: #092e4e;
+  --secondary: #8090A0;
+  --secondary-dark: #405060;
   --red: #EF4836;
 }
 
@@ -30,7 +30,7 @@ body {
   font-size: 18px;
   line-height: 28px;
   color: var(--black);
-  background: var(--grey-light);
+  background: var(--almost-black);
 }
 
 /* Typography */
@@ -69,9 +69,9 @@ p {
   margin: 0 30px 60px;
   padding: 20px 40px;
   width: 460px;
-  box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 26px -4px rgba(255,255,255,0.15);
   border-radius: 5px;
-  background: var(--white);
+  background: var(--grey-dark);
 }
 
 @media only screen and (max-width: 520px) {
@@ -103,7 +103,7 @@ label {
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 1px;
-  color: var(--grey-medium);
+  color: var(--almost-white);
   display: block;
 }
 
@@ -118,7 +118,7 @@ label {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
   display: block;
-  background: var(--almost-white);
+  background: var(--grey-medium);
   transition: border-color .15s ease;
 }
 
@@ -149,14 +149,23 @@ label {
   letter-spacing: 1px;
   font-weight: 600;
   text-decoration: none;
-  color: var(--white);
+  color: var(--almost-white);
   border: none;
+  box-shadow: 0 0 10px var(--almost-black);
   border-radius: 4px;
   outline: none;
   cursor: pointer;
   display: inline-block;
   background: var(--primary);
   transition: color .15s ease, background-color .15s ease;
+}
+
+/* Fix autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px var(--grey-medium) inset !important;
 }
 
 .btn:hover {
