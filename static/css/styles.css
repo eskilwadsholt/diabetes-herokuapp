@@ -57,6 +57,17 @@ p {
   margin: 24px 0;
 }
 
+/* Functionality */
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Currently supported by Chrome, Edge, Opera and Firefox */
+}
+
 /* Cards */
 .card-wrapper {
   margin: 0 auto;
@@ -217,14 +228,44 @@ input[type=submit] {
   transition: 0.4s;
 }
 
-.change .bar1 {
+.open .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
   transform: rotate(-45deg) translate(-9px, 6px);
 }
 
-.change .bar2 {opacity: 0;}
+.open .bar2 {opacity: 0;}
 
-.change .bar3 {
+.open .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.dropdown-content {
+  margin-top: 10px;
+  position: absolute;
+  display: none;
+  min-width: 250px;
+  height: auto;
+  right: 0;
+  color: var(--grey-light);
+  background: var(--almost-black);
+  z-index: 10;
+}
+
+.open .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  float: none;
+  color: var(--almost-white);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border: 1px solid var(--grey-medium);
+}
+
+.dropdown-content a:hover {
+  background-color: var(--grey-dark);
 }

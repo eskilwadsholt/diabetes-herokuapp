@@ -3,7 +3,7 @@
 {% block content %}
     <div class="card-wrapper">
         <div class="card">
-            <h2 class="center">Dashboard</h2>
+            <h2 class="center noselect">Dashboard</h2>
             <p>
                 <strong>User:</strong> {{ session.user.name }} <br>
             </p>
@@ -12,4 +12,8 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 {% endblock %}

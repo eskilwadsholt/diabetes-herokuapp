@@ -10,16 +10,10 @@
 
       <form name="signup_form">
 
-        <label for="name">Name</label>
+        <label for="name" class="noselect">Name</label>
         <input type="text" name="name" class="field" required>
 
-        <label for="email">E-mail</label>
-        <input type="email" name="email" class="field" required>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" class="field" required>
-
-        <p class="error error--hidden"></p>
+        {% include '/login/loginfields.html' %}
 
         <input type="submit" value="Sign Up" class="btn">
 
