@@ -8,7 +8,7 @@
 html {
     background-color: rgb(73, 73, 73);
 }
-* {
+.graph {
     font-size: 11pt;
     font-family: sans-serif;
 }
@@ -166,7 +166,7 @@ html, body {
 #data-timestamp {
     position: absolute;
     left: 15px;
-    top: 15px;
+    top: 5px;
     color: gray;
 }
 
