@@ -1,4 +1,4 @@
-$('.dropdown-menu').on("click", function(e) {
+$('.menubtn').on("click", function(e) {
   e.preventDefault();
-  $(this).toggleClass("open");
+  $('.dropdown-menu').toggleClass("open");
 });
