@@ -1,0 +1,84 @@
+<div class="disable-select">
+  <div id="chart">
+      <div class="verticalSplit lower">
+          <div class="lowerChart">
+              <div class="BG-graph">
+                  <div id="BG-today">
+                      <div id="drift-change-tooltip"></div>
+                  </div>
+              </div>
+              <div class="basal-graph">
+                  <div id="basal-today"></div>
+              </div>
+              <div class="food-insulin-graph">
+                  <div id="food-insulin-today"></div>
+                  <div id="reset-view">&#8635;</div>
+              </div>
+              <div class="day-title"><div class="day-title text">today</div></div>
+          </div>
+      </div>
+  </div>
+  <div id="data-timestamp">Loading ...</div>
+  <div class="popup" id="stats-popup">
+      <div class="popup-header" id="stats-header">
+          <div class="popup-header title" id="stats-title">
+              <div id="stats-text">Average BG</div>
+              <div id="stats-value">5.2</div>
+          </div>
+          <button class="popup-header close-button">&times;</button>
+      </div>
+      <div class="popup-body" id="stats-histogram"></div>
+      <div class="popup-body" id="stats-body"></div>
+  </div>
+  <div class="popup" id="cals-popup">
+      <div class="popup-header" id="cals-header">
+          <div class="popup-header title" id="cals-title">
+              <div id="cals-text">Cals</div>
+              <div id="cals-value">0000</div>
+          </div>
+          <button class="popup-header close-button">&times;</button>
+      </div>
+      <div class="popup-body" id="cals-body"></div>
+  </div>
+  <div class="popup" id="meal-popup">
+      <div class="popup-header">
+          <div class="popup-header title" id="meal-title">
+              <div id="carbs-text">Meals</div>
+              <div id="carbs-value">000</div>
+          </div>
+          <button class="popup-header close-button">&times;</button>
+      </div>
+      <div class="popup-body" id="meal-body"></div>
+  </div>
+</div>
+<div id="overlay"></div>
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/graph/d3/d3.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/events/keys.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/events/mouse.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/events/timers.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/chart.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/timeaxis.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/timecursor.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/yaxis.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/yrange.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/path.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/dots.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/steps.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/area.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/bgstamp.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/lastbg.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/mealtable.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/meals.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/bolus.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/cumcals.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/chart/tempbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/data/data.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/helpers.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/plot.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph/fields.js') }}"></script>
+{% endblock scripts %}
+<!--
+<script src="./js/fields.js"></script>
+-->

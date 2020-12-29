@@ -1,0 +1,146 @@
+@import "./tables.css";
+
+* {
+  box-sizing: border-box;
+  font-size: 10pt;
+  font-family: sans-serif;
+}
+* ::-webkit-scrollbar {
+  display: none;
+}
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: gray;
+}
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+ -webkit-user-select: none; /* Safari */
+ -khtml-user-select: none; /* Konqueror HTML */
+ -moz-user-select: none; /* Firefox */
+ -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.popup {
+  position: fixed;
+  background: lightgray;
+  width: 90%;
+  left: 50%;
+  top: 10%;
+  max-height: 75%;
+  max-width: fit-content;
+  border: 2px solid black;
+  border-radius: 10px;
+  transform: translate(-50%, 0%);
+  z-index: 100;
+  box-shadow: 0 0 10px black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.popup-header {
+  box-sizing: border-box;
+  position: sticky;
+  top: 0%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  background: rgb(173, 173, 173);
+}
+.popup-header.titles-hscroll {
+  padding: 0;
+  border-radius: 10px;
+  overflow-x: scroll;
+  display: flex;
+  justify-content: left;
+  background: rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  max-width: 300px;
+}
+.popup-title {
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  margin-right: 10px;
+  display: flex;
+}
+.popup-title.selected {
+  border: 1px solid black;
+}
+.text {
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  background: #00be98;
+  color: white;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.value {
+  padding: 10px;
+  background: white;
+  font-weight: normal;
+  border-radius: 0 10px 10px 0;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.close-button {
+  border: none;
+  outline: none;
+  background: lightcoral;
+  padding: 10px;
+  padding-top: 5px;
+  border-radius: 5px;
+  color: white;
+  height: 2em;
+}
+.popup-body{
+  position: relative;
+  box-sizing: border-box;
+  min-height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  overflow: hidden;
+}
+.meal-table {
+  margin: 10px;
+  overflow: auto;
+}
+.void {
+  height: 5px;
+  min-width: 200px;
+}
+
+.right-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  margin: 10px;
+  background: gray;
+  border-radius: 10px;
+  overflow: auto;
+}
+.timestamp {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.timestamp-time {
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+  background: #00be98;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.timestamp-effect {
+  padding: 5px;
+  background: white;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+}

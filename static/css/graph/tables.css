@@ -1,0 +1,53 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 1px;
+}
+
+.tableStyles * {
+    font-size: 0.9em;
+    font-family: Arial;
+    white-space: nowrap;
+}
+
+.tableStyles {
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 10px gray;
+    width: 100%;
+    text-align: right;
+}
+
+.tableStyles th {
+    background: #009879;
+    color: white;
+    font-weight: bold;
+}
+
+.tableStyles td:nth-child(1), th:nth-child(1) {
+    text-align: left;
+}
+
+.tableStyles th, td {
+    padding: 5px 5px;
+}
+
+.food-column{
+    width: fit-content;
+}
+
+.tableStyles td {
+    text-align: right;
+}
+
+.tableStyles tr {
+    background-color: white;
+}
+
+.tableStyles tr:nth-of-type(even) {
+    background-color: rgb(228, 228, 228);
+  }
+
+.tableStyles tr:hover {
+    background: silver;
+    cursor: pointer;
+}

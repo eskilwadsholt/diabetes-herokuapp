@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/static/css/styles.css">
   <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 
+  {% block header %} {% endblock %}
+
   <link rel="shortcut icon" href="{{ url_for('static', filename='ico/screenshot-32x32') }}"/>
   
 </head>

@@ -1,0 +1,137 @@
+.popup {
+  position: fixed;
+  background: lightgray;
+  width: 90%;
+  left: 50%;
+  top: 40%;
+  max-height: 75%;
+  max-width: fit-content;
+  border: 2px solid black;
+  border-radius: 10px;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 100;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px black;
+}
+.popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 200ms ease-in-out;
+  overflow-y: scroll;
+}
+.popup-header {
+  box-sizing: border-box;
+  position: sticky;
+  top: 0%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  background: rgb(173, 173, 173);
+}
+#cals-header {
+  z-index: 110;
+}
+.popup-header.title, .meal-title {
+  padding: 0;
+  border-radius: 10px;
+}
+.popup-header.close-button {
+  border: none;
+  outline: none;
+  background: lightcoral;
+  padding: 10px;
+  padding-top: 5px;
+  border-radius: 5px;
+  color: white;
+  height: 2em;
+}
+.popup-body{
+  box-sizing: border-box;
+  padding: 10px;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(200, 200, 200, 0.5);
+  z-index: 50;
+  display: none;
+}
+#overlay.active {
+  display: block;
+}
+
+.popup-header.title #carbs-text, #cals-text, #stats-text, .meal-title #time, .stat-description, .stat-time {
+  padding: 10px;
+  background: #00be98;
+  color: white;
+}
+.stat-description {
+  border-radius: 10px 0 0 10px;
+  flex: 1;
+}
+.popup-header.title #carbs-value, #cals-value, #stats-value, .meal-title #description, .stat-percentage {
+  padding: 10px;
+  background: white;
+  font-weight: normal;
+}
+.stat-percentage {
+  width: 40px;
+  text-align: right;
+}
+.stat-time {
+  border-radius: 0 10px 10px 0;
+  width: 35px;
+  text-align: right;
+}
+.stat-row {
+  display: flex;
+  margin: 5px;
+}
+
+
+#meal-stats {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background: #00be98;
+  color: white;
+  border-radius: 0px;
+}
+
+#cals-date {
+  display: flex;
+  font-size: 12pt;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.meal-caption {
+  margin: 5px 0 5px 0;
+  width: 100%;
+}
+
+.meal-title {
+  display: flex;
+}
+
+.meal-title #description {
+  flex: 2;
+}
+.meal-title #meal-stats {
+  flex: 1;
+  min-width: fit-content;
+}
+
+@media (max-height: 500px) {
+  .popup, #cals-popup {
+    top: 50%;
+    max-height: 90%;
+  }
+}

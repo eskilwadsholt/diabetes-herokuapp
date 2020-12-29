@@ -1,0 +1,66 @@
+.axis * {
+    stroke: black;
+    shape-rendering: geometricPrecision;
+    z-index: 11;
+}
+.axis text {
+    stroke: none;
+    fill: black;
+    shape-rendering: crispEdges;
+}
+.line {
+    fill: none;
+    stroke: whitesmoke;
+    stroke-width: 2;
+}
+.line-shadow {
+    fill: none;
+    stroke: rgba(245, 245, 245, 0.5);
+    stroke-width: 2;
+    stroke-dasharray: 10 10;
+}
+.steps {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+}
+.area.carbs {
+    fill: cornflowerblue;
+    opacity: 0.7;
+    stroke: black;
+    stroke-width: 0.5;
+}
+.area.bolus {
+    fill: lightcoral;
+    opacity: 0.7;
+    stroke: black;
+    stroke-width: 0.5;
+}
+.vline {
+    fill: none;
+    stroke: rgba(255, 46, 46, 0.8);
+    stroke-width: 3;
+}
+.tooltipCircle {
+    fill: rgba(0, 0, 0, 0);
+}
+.meal-circle {
+    fill: cornflowerblue;
+}
+.bolus-circle {
+    fill: lightcoral;
+}
+#count {
+    font-size: 7pt;
+}
+.dots {
+    fill: whitesmoke;
+    stroke:  black;
+    stroke-width: 1px;
+}
+
+.carbs, .bolus, .temps {
+    font-size: 9pt;
+    fill: rgba(255, 255, 255, 0.8);
+    z-index: 20;
+}
