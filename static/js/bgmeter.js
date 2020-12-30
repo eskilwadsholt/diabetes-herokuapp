@@ -2,16 +2,16 @@ function CreateBGmeter() {
   var divElement = null;
   var bgmeter = null;
   var scales = { "x": null, "y": null};
-  var xMin = -2;
-  var xMax = 22;
+  var xMin = -1;
+  var xMax = 14;
   var mouseDownX;
   var mouseNewX;
   var mouseDownY;
   var mouseNewY;
-  var xWindowWidth = 24;
-  var xWindowWidthStart = 24;
-  var xDisplacement = -2;
-  var xDisplacementStart = 0;
+  var xWindowWidth = 15;
+  var xWindowWidthStart = 15;
+  var xDisplacement = -1;
+  var xDisplacementStart = -1;
 
     divElement = document.getElementsByClassName("BG-meter")[0];
     width = divElement.clientWidth;
@@ -47,6 +47,9 @@ function CreateBGmeter() {
       .attr("d", identity)
       .attr("stroke", "black")
       .attr("stroke-width", 3);
+
+    updateBGInputVal();
+
       d3.select(".BG-meter")
         .on("mousemove", function() {
             var mouseNewX = d3.mouse(this)[0];
@@ -68,10 +71,10 @@ function CreateBGmeter() {
           let xMid = xDisplacement + 0.5 * xWindowWidth;
           console.log(xMid);
           let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
-          let zoomFactor = Math.pow(2, - dy / 50);
+          let zoomFactor = Math.pow(2, - dy / 20);
           xWindowWidth = xWindowWidthStart * zoomFactor;
-          if (xWindowWidth < 1) xWindowWidth = 1;
-          else if (xWindowWidth > 50) xWindowWidth = 50;
+          if (xWindowWidth < 1.5) xWindowWidth = 1.5;
+          else if (xWindowWidth > 25) xWindowWidth = 25;
           xDisplacement = xMid - 0.5 * xWindowWidth;
           redrawAxis();
           mouseDownX = newX;
@@ -99,26 +102,6 @@ function CreateBGmeter() {
           .on("drag", () => { dragTo(d3.event.x, d3.mouse(divElement)[1]); });
       
       d3.select(".BG-meter").call(drag);
-      
-      /*
-      d3.select(".BG-meter").on("click", function() {
-        if (xWindowWidth > 0.6) {
-          xWindowWidth *= 0.5;
-          var mouseNewX = d3.mouse(this)[0];
-          var bgX = scales.x.invert(mouseNewX);
-          var dx = xDisplacement - bgX;
-          xDisplacement = bgX + 0.5 * dx;
-          smoothRedrawAxis();
-        }
-      });
-
-      d3.select(".zoom-out-bgmeter").on("click", function() {
-        var midPoint = 0.5 * (xMin + xMax);
-        xWindowWidth *= 2;
-        xDisplacement = midPoint - 0.5 * xWindowWidth;
-        smoothRedrawAxis();
-      });
-      */
       
       function smoothRedrawAxis() {
         xMin = xDisplacement;
