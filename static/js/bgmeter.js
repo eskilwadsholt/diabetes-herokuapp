@@ -4,10 +4,10 @@ function CreateBGmeter() {
   var scales = { "x": null, "y": null};
   var xMin = -1;
   var xMax = 14;
-  var mouseDownX;
-  var mouseNewX;
-  var mouseDownY;
-  var mouseNewY;
+  var mouseDownX = 0;
+  var mouseNewX = 0;
+  var mouseDownY = 0;
+  var mouseNewY = 0;
   var xWindowWidth = 15;
   var xWindowWidthStart = 15;
   var xDisplacement = -1;
@@ -52,8 +52,10 @@ function CreateBGmeter() {
 
       d3.select(".BG-meter")
         .on("mousemove", function() {
-            var mouseNewX = d3.mouse(this)[0];
-            dragTo(mouseNewX);
+            var mousePoint = d3.mouse(divElement);
+            var mouseNewX = mousePoint[0];
+            var mouseNewY = mousePoint[1];
+            dragTo(mouseNewX, mouseNewY);
         });
       
       function dragStart(startX, startY) {
@@ -65,11 +67,9 @@ function CreateBGmeter() {
       
       function dragTo(newX, newY) {
         if (bgmeter) {
-          console.log(mouseDownX + "," + newX);
           let dx = scales.x.invert(newX) - scales.x.invert(mouseDownX);
           xDisplacement -= dx;
           let xMid = xDisplacement + 0.5 * xWindowWidth;
-          console.log(xMid);
           let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
           let zoomFactor = Math.pow(2, - dy / 20);
           xWindowWidth = xWindowWidthStart * zoomFactor;
