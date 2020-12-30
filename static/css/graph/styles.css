@@ -168,7 +168,8 @@ html, body {
     position: absolute;
     left: 15px;
     top: 5px;
-    color: gray;
+    color: #808080;
+    z-index: 100;
 }
 
 #drift-change-tooltip {
