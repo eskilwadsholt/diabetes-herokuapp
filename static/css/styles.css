@@ -399,4 +399,19 @@ input[type=submit] {
   fill: var(--almost-white);
   font: 30px sans-serif;  
   text-anchor: center; 
-} 
+}
+
+.zoom-out-bgmeter {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  background-color: var(--primary);
+  color: var(--almost-white);
+  font-size: 40px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

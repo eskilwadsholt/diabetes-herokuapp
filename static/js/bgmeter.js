@@ -85,10 +85,16 @@ function CreateBGmeter() {
       d3.select(".BG-meter").call(drag);
       
       d3.select(".BG-meter").on("click", function() {
-        console.log("BG-meter click");
         xWindowWidth *= 0.5;
         var mouseNewX = d3.mouse(this)[0];
         xDisplacement = scales.x.invert(mouseNewX) - 0.5 * xWindowWidth;
+        smoothRedrawAxis();
+      });
+
+      d3.select(".zoom-out-bgmeter").on("click", function() {
+        var midPoint = 0.5 * (xMin + xMax);
+        xWindowWidth *= 2;
+        xDisplacement = midPoint - 0.5 * xWindowWidth;
         smoothRedrawAxis();
       });
       
