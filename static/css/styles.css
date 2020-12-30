@@ -218,7 +218,7 @@ input:-webkit-autofill:active  {
   transition: background-color 0.2s ease;
 }
 
-.btn-plus.activated {
+.activated .btn-plus {
   background: var(--primary-red);
 }
 
@@ -322,8 +322,8 @@ input[type=submit] {
 }
 
 :root {
-  --tool-bottom: 5px;
-  --tool-dims: 60px;
+  --tool-bottom: 3px;
+  --tool-dims: 65px;
 }
 
 .tool {
