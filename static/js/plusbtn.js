@@ -12,5 +12,6 @@ $('.btn-plus').on('click', function(e) {
 });
 
 $('#overlay').on('click', function(e) {
+  $('#overlay').removeClass('active');
   $('.btn-plus').removeClass('activated');
 });

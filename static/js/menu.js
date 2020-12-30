@@ -1,4 +1,8 @@
 $('.menubtn').on("click", function(e) {
-  e.preventDefault();
   $('.dropdown-menu').toggleClass("open");
+  e.stopPropagation();
+});
+
+$('body').on('click', function(e) {
+  $('.dropdown-menu').removeClass('open');
 });
