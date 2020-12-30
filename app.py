@@ -46,3 +46,7 @@ def signuppage():
 def dashboard():
   return render_template("dashboard.html")
 
+@app.route('/input-panels/BG/')
+@login_required
+def BGpanel():
+  return render_template("input-panels/BG.html")

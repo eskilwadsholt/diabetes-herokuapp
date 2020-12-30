@@ -26,7 +26,22 @@ function openInputPanel() {
 }
 
 function openBGInput() {
-  $inputPanel.html("<h1 class='center'>Enter BG</h1>");
+  console.log('Opening BG input');
+  const header = "<h1 class='center'>Enter BG</h1>";
+  $.ajax({
+    url: "/input-panels/BG",
+    type: "GET",
+    dataType: "html",
+    success: function(resp) {
+      $inputPanel.html(resp);
+      CreateBGmeter();
+      return;
+    },
+    error: function(resp) {
+      console.log(resp);
+    }
+  });
+  $inputPanel.html(header);
 }
 
 function openInsulinInput() {
