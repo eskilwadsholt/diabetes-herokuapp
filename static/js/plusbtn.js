@@ -1,17 +1,18 @@
+const $bottomBar = $('.bottom-bar')
+
 $('.btn-plus').on('click', function(e) {
-  closePopups();
-  if ($(this).hasClass('activated')) {
+  if ($bottomBar.hasClass('activated')) {
     $('#overlay').removeClass('active');
-    $(this).removeClass('activated');
+    $bottomBar.removeClass('activated');
   }
   else {
     $('#overlay').addClass('active');
-    $(this).addClass('activated');
+    $bottomBar.addClass('activated');
   }
   e.preventDefault();
 });
 
 $('#overlay').on('click', function(e) {
   $('#overlay').removeClass('active');
-  $('.btn-plus').removeClass('activated');
+  $bottomBar.removeClass('activated');
 });

@@ -194,14 +194,14 @@ input:-webkit-autofill:active  {
   background: var(--secondary-dark);
 }
 
+
 .btn-plus {
   z-index: 200;
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   left: 50%;
-  bottom: 0;
+  bottom: 15px;
   margin-bottom: 10px;
   width: 80px;
   height: 80px;
@@ -215,7 +215,7 @@ input:-webkit-autofill:active  {
   cursor: pointer;
   background: var(--primary);
   transform: translate(-50%);
-  transition: color .15s ease, background-color .15s ease;
+  transition: background-color 0.2s ease;
 }
 
 .btn-plus.activated {
@@ -308,4 +308,56 @@ input[type=submit] {
 
 .dropdown-content a:hover {
   background-color: var(--grey-dark);
+}
+
+/* Bottom toolbar */
+
+.bottom-bar {
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  background-color: var(--grey-dark);
+}
+
+:root {
+  --tool-bottom: 5px;
+  --tool-dims: 60px;
+}
+
+.tool {
+  position: fixed;
+  bottom: var(--tool-bottom);
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--tool-dims);
+  height: var(--tool-dims);
+  font-size: 35px;
+  transform: translate(-50%);
+  transition: left 0.4s ease-in-out;
+  z-index: 150;
+}
+
+.selected {
+  border-radius: 50%;
+  background-color: var(--almost-black);
+}
+
+.activated .blood {
+  left: 12%;
+}
+
+.activated .insulin {
+  left: 28%;
+}
+
+.activated .meal {
+  left: 72%;
+}
+
+.activated .note {
+  left: 88%;
 }

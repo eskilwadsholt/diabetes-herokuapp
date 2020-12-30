@@ -8,17 +8,11 @@
 
     {% include "graph/graph.html" %}
 
-    <div class="btn-plus">
-        <div class="plus-symbol">
-            &#65291;
-        </div>
-        <div class="minus-symbol">
-            &#65293;
-        </div>
-    </div>
+    {% include "bottombar.html" %}
 {% endblock content %}
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plusbtn.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/selectTool.js') }}"></script>
 {% endblock scripts %}
