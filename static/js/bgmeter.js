@@ -85,10 +85,14 @@ function CreateBGmeter() {
       d3.select(".BG-meter").call(drag);
       
       d3.select(".BG-meter").on("click", function() {
-        xWindowWidth *= 0.5;
-        var mouseNewX = d3.mouse(this)[0];
-        xDisplacement = scales.x.invert(mouseNewX) - 0.5 * xWindowWidth;
-        smoothRedrawAxis();
+        if (xWindowWidth > 0.6) {
+          xWindowWidth *= 0.5;
+          var mouseNewX = d3.mouse(this)[0];
+          var bgX = scales.x.invert(mouseNewX);
+          var dx = xDisplacement - bgX;
+          xDisplacement = bgX + 0.5 * dx;
+          smoothRedrawAxis();
+        }
       });
 
       d3.select(".zoom-out-bgmeter").on("click", function() {
