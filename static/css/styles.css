@@ -13,6 +13,7 @@
   --grey-medium: #909090;
   --grey-dark: #505050;
   --primary: #12548d;
+  --primary-red: #ce7684;
   --primary-dark: #092e4e;
   --secondary: #8090A0;
   --secondary-dark: #405060;
@@ -193,7 +194,8 @@ input:-webkit-autofill:active  {
   background: var(--secondary-dark);
 }
 
-.btn--plus {
+.btn-plus {
+  z-index: 200;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -201,11 +203,11 @@ input:-webkit-autofill:active  {
   left: 50%;
   bottom: 0;
   margin-bottom: 10px;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   padding: 11px;
-  font-size: 45px;
+  font-size: 60px;
   font-weight: 600;
   text-decoration: none;
   color: var(--almost-white);
@@ -214,6 +216,22 @@ input:-webkit-autofill:active  {
   background: var(--primary);
   transform: translate(-50%);
   transition: color .15s ease, background-color .15s ease;
+}
+
+.btn-plus.activated {
+  background: var(--primary-red);
+}
+
+.activated .plus-symbol {
+  display: none;
+}
+
+.minus-symbol {
+  display: none;
+}
+
+.activated .minus-symbol {
+  display: block;
 }
 
 input[type=submit] {

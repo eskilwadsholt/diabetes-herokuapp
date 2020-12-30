@@ -90,6 +90,9 @@ d3.select("html")
 d3.selectAll(".popup-header.close-button")
     .on('click', closePopups);
 
+d3.selectAll("#overlay")
+    .on('click', closePopups);
+
 function closePopups() {
     d3.select("#overlay").classed("active", false);
     d3.selectAll(".popup").classed("active", false);
