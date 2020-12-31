@@ -29,17 +29,17 @@ function CreateBGmeter() {
 
   bgmeter.append("g")
     .attr("class", "axisWhite major")
-    .attr("transform", `translate(0, ${height / 2})`)
+    .attr("transform", `translate(0, ${height / 4})`)
     .call(majorAxis);
 
   bgmeter.append("g")
     .attr("class", "axisWhite minor")
-    .attr("transform", `translate(0, ${height / 2})`)
+    .attr("transform", `translate(0, ${height / 4})`)
     .call(minorAxis);
 
   bgmeter.append("g")
     .attr("class", "axisWhite extra")
-    .attr("transform", `translate(0, ${height / 2})`)
+    .attr("transform", `translate(0, ${height / 4})`)
     .call(extraAxis);
 
   let identity = d3.line()
@@ -76,7 +76,7 @@ function CreateBGmeter() {
       xDisplacement -= dx;
       let xMid = xDisplacement + 0.5 * xWindowWidth;
       let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
-      let zoomFactor = Math.pow(2, - dy / 20);
+      let zoomFactor = Math.pow(2, - dy / 10);
       xWindowWidth = xWindowWidthStart * zoomFactor;
       if (xWindowWidth < 3) xWindowWidth = 3;
       else if (xWindowWidth > 30) xWindowWidth = 30;
@@ -93,13 +93,10 @@ function CreateBGmeter() {
     scales.x.domain([xMin, xMax]);
     let [majorAxis, minorAxis, extraAxis] = computeXAxes(minNumTicks);
     bgmeter.select("g.axisWhite.major")
-      .attr("transform", `translate(0, ${height / 2})`)
       .call(majorAxis);
     bgmeter.select("g.axisWhite.minor")
-      .attr("transform", `translate(0, ${height / 2})`)
       .call(minorAxis);
     bgmeter.select("g.axisWhite.extra")
-      .attr("transform", `translate(0, ${height / 2})`)
       .call(extraAxis);
     updateBGInputVal();
   }

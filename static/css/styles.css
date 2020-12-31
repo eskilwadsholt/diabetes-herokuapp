@@ -379,15 +379,15 @@ input[type=submit] {
 }
 
 .BG-input {
-  padding: 70px;
+  padding: 30px;
   font-size: 120px;
   color: var(--almost-white);
 }
 
 .BG-meter {
-  margin: 50px 0;
-  height: 30%;
-  background-color: rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+  height: 60%;
+  background-color: rgba(200, 200, 255, 0.2);
 }
 
 .axisWhite path, line {
