@@ -78,8 +78,8 @@ function CreateBGmeter() {
       let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
       let zoomFactor = Math.pow(2, - dy / 20);
       xWindowWidth = xWindowWidthStart * zoomFactor;
-      if (xWindowWidth < 1.5) xWindowWidth = 1.5;
-      else if (xWindowWidth > 25) xWindowWidth = 25;
+      if (xWindowWidth < 3) xWindowWidth = 3;
+      else if (xWindowWidth > 30) xWindowWidth = 30;
       xDisplacement = xMid - 0.5 * xWindowWidth;
       redrawAxis();
       mouseDownX = newX;
@@ -147,7 +147,7 @@ function CreateBGmeter() {
       .tickFormat("");
     const extraAxis = d3.axisTop(scales.x)
       .tickValues(extraVals)
-      .tickSize(8)
+      .tickSize(6)
       .tickFormat("");
     return [majorAxis, minorAxis, extraAxis];
   }

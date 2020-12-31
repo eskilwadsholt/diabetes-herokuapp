@@ -392,7 +392,15 @@ input[type=submit] {
 
 .axisWhite path, line {
   stroke: var(--almost-white);
-  stroke-width: 1px;
+  stroke-width: 1.5px;
+}
+
+.axisWhite.minor path, line {
+  stroke-width: 0.9px;
+}
+
+.axisWhite.extra path, line {
+  stroke-width: 0.5px;
 }
 
 .axisWhite text {
