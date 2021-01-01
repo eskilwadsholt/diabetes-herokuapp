@@ -1,7 +1,9 @@
 const BGlims = {
   xmin: 0,
   xmax: 30,
-  minticks: 1.6
+  minticks: 1.6,
+  minzoom: 3,
+  maxzoom: 30
 };
 
 function CreateBGmeter() {
@@ -10,9 +12,9 @@ function CreateBGmeter() {
   let scales = { "x": null, "y": null};
   let mouseDownX = 0;
   let mouseDownY = 0;
-  let xWindowWidth = 15;
-  let xWindowWidthStart = 15;
-  let xMid = 7;
+  let xWindowWidth = BGlims.maxzoom;
+  let xWindowWidthStart = BGlims.maxzoom;
+  let xMid = 10;
   let xMin = xMid - 0.5 * xWindowWidth;
   let xMax = xMid + 0.5 * xWindowWidth;
 
@@ -81,8 +83,7 @@ function CreateBGmeter() {
       let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
       let zoomFactor = Math.pow(2, - dy / 10);
       xWindowWidth = xWindowWidthStart * zoomFactor;
-      if (xWindowWidth < 3) xWindowWidth = 3;
-      else if (xWindowWidth > 30) xWindowWidth = 30;
+      clamp(xWindowWidth, BGlims.minzoom, BGlims.maxzoom);
       redrawAxis();
       mouseDownX = newX;
     }
