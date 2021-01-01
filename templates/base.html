@@ -15,10 +15,16 @@
   
 </head>
   <body>
-    
-    {% include 'topbar.html' %}
-    {% block content %} {% endblock %}
 
+    <div class="flex-container">
+      {% include 'topbar.html' %}
+      <!-- Middle body -->
+      <div class="middle-body">
+        {% block content %} {% endblock %}
+      </div>
+      {% block bottom %} {% endblock %}
+    </div>
+    
   </body>
 
   {% block scripts %} {% endblock %}

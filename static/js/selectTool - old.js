@@ -1,5 +1,3 @@
-$('.input-panel').on('click', (e) => { e.stopPropagation(); } );
-
 $('.tool').on('click', function(e) {
   $('.tool').removeClass('selected');
   $(this).addClass('selected');
@@ -28,24 +26,32 @@ function openInputPanel() {
 }
 
 function openBGInput() {
-  const BGbody = `<div class="BG-input center"></div>
-    <div class="BG-meter center"></div>`;
-  $('.input-body').html(BGbody);
-  $inputPanel.find("h1").text("Enter BG");
-  CreateBGmeter();
+  console.log('Opening BG input');
+  const header = "<h1 class='center'>Enter BG</h1>";
+  $.ajax({
+    url: "/input-panels/BG",
+    type: "GET",
+    dataType: "html",
+    success: function(resp) {
+      $inputPanel.html(resp);
+      CreateBGmeter();
+      return;
+    },
+    error: function(resp) {
+      console.log(resp);
+    }
+  });
+  $inputPanel.html(header);
 }
 
 function openInsulinInput() {
-  $('.input-body').html("");
-  $inputPanel.find("h1").text("Enter Bolus");
+  $inputPanel.html("<h1 class='center'>Enter Bolus</h1>");
 }
 
 function openMealInput() {
-  $('.input-body').html("");
-  $inputPanel.find("h1").text("Enter Meal");
+  $inputPanel.html("<h1 class='center'>Enter Meal</h1>");
 }
 
 function openNoteInput() {
-  $('.input-body').html("");
-  $inputPanel.find("h1").text("Enter Note");
+  $inputPanel.html("<h1 class='center'>Enter Note</h1>");
 }

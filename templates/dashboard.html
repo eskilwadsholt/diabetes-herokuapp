@@ -7,16 +7,19 @@
 {% block content %}
 
     {% include "graph/graph.html" %}
-
-      <!-- Input Panel -->
-      <div class="input-panel">
+    <!-- Input Panel -->
+    <div class="input-panel">
         <h1 class='center'>Enter BG</h1>
         <div class="input-body"></div>
-      </div>
-
-    {% include "bottombar.html" %}
+    </div>
 
 {% endblock content %}
+
+{% block bottom %}
+
+    {% include "bottombar.html" %}
+    
+{% endblock %}
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/menu.js') }}"></script>

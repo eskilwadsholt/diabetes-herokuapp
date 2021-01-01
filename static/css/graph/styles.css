@@ -106,14 +106,14 @@ html, body {
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    height: 50%;
+    height: 70%;
     padding: 3px 0 3px 0;
 }
 .verticalSplit.upper {
     padding-top: 10px;
 }
 .verticalSplit.bottom {
-    height: 20%;
+    height: 25%;
     padding: 3px;
 }
 .flex.container {
@@ -193,19 +193,3 @@ html, body {
         height: 35%;
     }
 }
-
-/* Input Panel */
-.input-panel {
-    display: none;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    height: calc(100% - 70px);
-    width: 100%;
-    background-color: var(--almost-black);
-    z-index: 90;
-  }
-  
-  .input-panel.activated {
-    display: block;
-  }

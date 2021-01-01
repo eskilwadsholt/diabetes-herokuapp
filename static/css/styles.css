@@ -244,8 +244,6 @@ input[type=submit] {
   display: flex;
   justify-content:space-between;
   align-items: center;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 5px 10px;
   background-color: var(--grey-dark);
@@ -289,7 +287,7 @@ input[type=submit] {
   right: 0;
   color: var(--grey-light);
   background: var(--almost-black);
-  z-index: 10;
+  z-index: 300;
 }
 
 .open .dropdown-content {
@@ -311,11 +309,8 @@ input[type=submit] {
 }
 
 /* Bottom toolbar */
-
 .bottom-bar {
   z-index: 100;
-  position: fixed;
-  bottom: 0;
   height: 70px;
   width: 100%;
   background-color: var(--grey-dark);
@@ -366,12 +361,14 @@ input[type=submit] {
 .input-panel {
   display: none;
   padding: 10px;
-  position: fixed;
+  position: absolute;
   top: 0;
-  height: calc(100% - 70px);
+  height: 100%;
   width: 100%;
   background-color: var(--almost-black);
   z-index: 90;
+  transition: 3s ease-in-out;
+  overflow: hidden;
 }
 
 .input-body {
@@ -427,4 +424,14 @@ input[type=submit] {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.middle-body {
+  flex: 1;
 }
