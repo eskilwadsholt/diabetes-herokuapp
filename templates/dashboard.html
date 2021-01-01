@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/graph/styles.css') }}">
 {% endblock header %}
 
-{% block content %}
+{% block middleBody %}
 
     {% include "graph/graph.html" %}
     <!-- Input Panel -->
@@ -13,7 +13,7 @@
         <div class="input-body"></div>
     </div>
 
-{% endblock content %}
+{% endblock middleBody %}
 
 {% block bottom %}
 
@@ -26,4 +26,5 @@
     <script src="{{ url_for('static', filename='js/plusbtn.js') }}"></script>
     <script src="{{ url_for('static', filename='js/input-panels/selectTool.js') }}"></script>
     <script src="{{ url_for('static', filename='js/input-panels/bgmeter.js') }}"></script>
+    {% include "graph/graphScripts.html" %}
 {% endblock scripts %}
