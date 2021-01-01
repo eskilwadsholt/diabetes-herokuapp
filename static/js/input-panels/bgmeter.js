@@ -82,8 +82,7 @@ function CreateBGmeter() {
       xMid = clamp(xMid, BGlims.xmin, BGlims.xmax);
       let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
       let zoomFactor = Math.pow(2, - dy / 10);
-      xWindowWidth = xWindowWidthStart * zoomFactor;
-      clamp(xWindowWidth, BGlims.minzoom, BGlims.maxzoom);
+      xWindowWidth = clamp(xWindowWidthStart * zoomFactor, BGlims.minzoom, BGlims.maxzoom);
       redrawAxis();
       mouseDownX = newX;
     }
