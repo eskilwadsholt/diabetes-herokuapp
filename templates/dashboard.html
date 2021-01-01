@@ -9,9 +9,10 @@
     {% include "graph/graph.html" %}
 
       <!-- Input Panel -->
-        <div class="input-panel">
-            Form for entering data ...
-        </div>
+      <div class="input-panel">
+        <h1 class='center'>Enter BG</h1>
+        <div class="input-body"></div>
+      </div>
 
     {% include "bottombar.html" %}
 
@@ -20,6 +21,6 @@
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plusbtn.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/selectTool.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bgmeter.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/input-panels/selectTool.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/input-panels/bgmeter.js') }}"></script>
 {% endblock scripts %}
