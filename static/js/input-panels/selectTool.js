@@ -26,12 +26,21 @@ function openInputPanel() {
 }
 
 function openBGInput() {
-  const BGbody = `<div class="BG-input center"></div>
-    <div class="BG-meter center"></div>`;
-  $('.input-body').html(BGbody);
   $inputPanel.find("h1").text("Enter BG");
+  const BGbody = `<div class="BG-input center">7</div>`;
+  $('.input-body').html(BGbody);
+  divHeights = 0;
+  $('.input-body > div').each( (i, e) => {
+    let height = $(e).height();
+    console.log(`${e}, ${height}`);
+    divHeights += height;
+  });
+  console.log($('.input-body').height());
+  $meterWrapper = $('<div class="meter-wrapper"></div>')
+    .height($('.input-body').height() - divHeights);
+  $meterWrapper.append($('<div class="BG-meter"></div>'));
+  $('.input-body').append($meterWrapper);
   CreateBGmeter();
-  //$inputPanel.html("<h1 class='center'>Enter BG</h1>");
 }
 
 function openInsulinInput() {

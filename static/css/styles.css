@@ -310,7 +310,7 @@ input[type=submit] {
 
 /* Bottom toolbar */
 .bottom-bar {
-  z-index: 100;
+  z-index: 80;
   height: 70px;
   width: 100%;
   background-color: var(--grey-dark);
@@ -360,35 +360,38 @@ input[type=submit] {
 /* Input Panel */
 .input-panel {
   display: none;
-  padding: 10px;
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
   background-color: var(--almost-black);
-  z-index: 90;
+  z-index: 70;
   transition: 3s ease-in-out;
   overflow: hidden;
 }
 
 .input-body {
   width: 100%;
-  height: 100%;
+  flex: 1;
 }
 
 .input-panel.activated {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .BG-input {
-  padding: 30px;
-  font-size: 120px;
+  font-size: 70px;
+  line-height: 1.2;
   color: var(--almost-white);
 }
 
+.meter-wrapper {
+  padding: 10px;
+}
 .BG-meter {
-  margin: 20px 0;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   background-color: rgba(255,255,255,0.05);
 }
 
