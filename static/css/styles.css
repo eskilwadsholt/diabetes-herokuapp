@@ -380,7 +380,7 @@ input[type=submit] {
   flex-direction: column;
 }
 
-.BG-input {
+.BG-value {
   font-size: 70px;
   line-height: 1.2;
   color: var(--almost-white);

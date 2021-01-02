@@ -1,14 +1,26 @@
 from flask import Flask, jsonify, request, session, redirect
 import uuid
 from passlib.hash import pbkdf2_sha256
-from app import db
+from app import user_db, data_db
 
 pepper = "This is nice, but not important"
+
+class Data:
+  def submitBG(self):
+    data = request.json 
+    print(data)
+    email = session["user"]["email"].replace('.', '+')
+    coll = data_db["BG: " + email]
+    try:
+      coll.insert_one(request.json)
+    except:
+      return jsonify({ "error": "Request to submit BG to DB failed" }), 400
+    return "success", 200
 
 class User:
 
   def login(self):
-    user = db.users.find_one({ "email": request.form.get('email') })
+    user = user_db.users.find_one({ "email": request.form.get('email') })
 
     if user and pbkdf2_sha256.verify(user['salt'] + request.form.get('password') + pepper, user['password']):
         return self.start_session(user)
@@ -42,10 +54,10 @@ class User:
 
 
     # Check for existing email address
-    if db.users.find_one({ "email": user["email"]}):
+    if user_db.users.find_one({ "email": user["email"]}):
       return jsonify({ "error": "E-mail address already in use"}), 400
 
-    if db.users.insert_one(user):
+    if user_db.users.insert_one(user):
       return self.start_session(user)
 
     return jsonify({ "error": "Signup failed" }), 400

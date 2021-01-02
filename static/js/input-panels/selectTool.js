@@ -27,7 +27,8 @@ function openInputPanel() {
 
 function openBGInput() {
   $inputPanel.find("h1").text("Enter BG");
-  const BGbody = `<div class="BG-input center">7</div>`;
+  const BGbody = `<div class="BG-value center btn--secondary">7</div>
+  <div class="error error--hidden"></div>`;
   $('.input-body').html(BGbody);
   divHeights = 0;
   $('.input-body > div').each( (i, e) => {

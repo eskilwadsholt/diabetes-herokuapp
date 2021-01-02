@@ -1,8 +1,8 @@
 const BGlims = {
   xmin: 0,
   xmax: 30,
-  minticks: 1.6,
-  minzoom: 3,
+  minticks: 1.8,
+  minzoom: 2.5,
   maxzoom: 30
 };
 
@@ -59,7 +59,7 @@ function CreateBGmeter() {
     .attr("stroke", "black")
     .attr("stroke-width", 3);
 
-    updateBGInputVal();
+    updateBGVal();
 
   d3.select(".BG-meter")
     .on("mousemove", function() {
@@ -100,7 +100,7 @@ function CreateBGmeter() {
       .call(minorAxis);
     bgmeter.select("g.axisWhite.extra")
       .call(extraAxis);
-    updateBGInputVal();
+    updateBGVal();
   }
   
   let drag = d3.drag()
@@ -152,13 +152,38 @@ function CreateBGmeter() {
     return [majorAxis, minorAxis, extraAxis];
   }
   
-  function updateBGInputVal() {
-    $(".BG-input").text((xMin + 0.5 * xWindowWidth).toFixed(1));
+  function updateBGVal() {
+    $(".BG-value").text((xMin + 0.5 * xWindowWidth).toFixed(1));
   }
   
   function noTrailingZeros(d) {
     return Number(d.toFixed(1));
   }
+
+  $(".BG-value").on("click", function(e) {
+    $BGval = Number($(".BG-value").text());
+    $error = $(".error");
+    console.log(`Send BG: ${$BGval} to DB`);
+    data = {
+      timestamp: new Date(),
+      BG: $BGval
+    };
+    $.ajax({
+      url: "/data/BG",
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: function(resp) {
+        console.log(resp);
+        window.location.href = "/dashboard/";
+      },
+      error: function(resp) {
+        console.log(resp);
+        $error.text(resp.responseJSON.error).removeClass("error--hidden");
+      }
+    });
+    e.stopPropagation();
+  });
 }
 
 function clamp(value, lower, upper) {
