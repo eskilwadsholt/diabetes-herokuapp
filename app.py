@@ -9,7 +9,8 @@ app.secret_key = "Let us see whether it works to have separate secret keys ... I
 # Database
 connection_string = "mongodb+srv://eskil-diabetes:kodenSpass!@diabetes-testdb.47dt3.azure.mongodb.net/<dbname>?retryWrites=true&w=majority"
 client = MongoClient(connection_string)
-db = client.user_login_system
+user_db = client.user_login_system
+data_db = client.data
 
 # Decorators
 def login_required(f):
@@ -45,8 +46,3 @@ def signuppage():
 @login_required
 def dashboard():
   return render_template("dashboard.html")
-
-@app.route('/input-panels/BG/')
-@login_required
-def BGpanel():
-  return render_template("input-panels/BG.html")
