@@ -18,3 +18,8 @@ def login():
 @login_required
 def submitBG():
   return Data().submitBG();
+
+@app.route('/data/bolus', methods = ['POST'])
+@login_required
+def submitBolus():
+  return Data().submitBolus();

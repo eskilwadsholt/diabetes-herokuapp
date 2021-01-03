@@ -6,9 +6,18 @@ from app import user_db, data_db
 pepper = "This is nice, but not important"
 
 class Data:
+  def submitBolus(self):
+    data = request.json
+    email = session["user"]["email"].replace('.', '+')
+    coll = data_db["bolus: " + email]
+    try:
+      coll.insert_one(request.json)
+    except:
+      return jsonify({ "error": "Request to submit bolus to DB failed" }), 400
+    return "success", 200
+
   def submitBG(self):
-    data = request.json 
-    print(data)
+    data = request.json
     email = session["user"]["email"].replace('.', '+')
     coll = data_db["BG: " + email]
     try:
