@@ -56,7 +56,7 @@ function openBGInput() {
 
 function openInsulinInput() {
   $inputPanel.find("h1").text("Enter Bolus");
-  const bolusbody = `<div class="bolus-value center btn--secondary">7</div>
+  const bolusbody = `<div class="bolus-value center btn--secondary"></div>
   <div class="error"> </div>`;
   $('.input-body').html(bolusbody);
   divHeights = 0;

@@ -63,18 +63,18 @@ function parseDateValJSON(json_list) {
 }
 
 function evaluatePath(path, x) {
+    const dx = 0.00001;
     var pathLength = path.element.node().getTotalLength();
-    var x = Math.floor(x);
     var beginning = 0, end = pathLength, target, pos;
     while (true) {
-        target = Math.floor((beginning + end) / 2);
+        target = (beginning + end) / 2;
         pos = path.element.node().getPointAtLength(target);
-        if ((target === end || target === beginning) && pos.x !== x) {
+        if ((target === end || target === beginning)) {
             break;
         }
-        if (pos.x > x)      end = target;
-        else if (pos.x < x) beginning = target;
-        else                break; //position found
+        if (pos.x > x + dx)      end = target;
+        else if (pos.x < x - dx) beginning = target;
+        else                     break; //position found
     }
     return pos.y;
 }
