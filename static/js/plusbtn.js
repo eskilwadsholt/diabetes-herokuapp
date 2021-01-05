@@ -38,11 +38,15 @@ function plusDragTo(newY) {
     if (newBottom >= submitHeight) {
       console.log("Plus button confirmation activated ...");
       newBottom = 0;
+      if ($('.blood').hasClass('selected')) submitBG('input[name="BG-value"]');
+      else if ($('.insulin').hasClass('selected')) submitBolus('input[name="bolus-value"]');
       $bottomBar.removeClass("activate-drag");
+      /*
       $bottomBar.removeClass('activated');
       $inputPanel.removeClass('activated');
       $(".tool").removeClass('selected');
       $chart.addClass('activated');
+      */
       plusDragEnd();
     }
     else {
