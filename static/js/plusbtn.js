@@ -12,7 +12,6 @@ $('.btn-plus').on('click', function(e) {
   }
   else {
     $bottomBar.addClass('activated');
-    $chart.removeClass('activated');
   }
   e.preventDefault();
 });

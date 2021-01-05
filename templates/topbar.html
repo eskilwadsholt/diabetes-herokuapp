@@ -1,6 +1,7 @@
 <div class="top-navbar">
   <div class="empty-left-container"></div>
-  <h1 class="noselect">Diabetes Tool v2</h1>
+  <div class="logo">
+  </div>
   <div class="dropdown-menu">
     <div class="menubtn">
       <div class="bar1"></div>
@@ -13,3 +14,7 @@
     </div>
   </div>
 </div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/addLogo.js') }}"></script>
+{% endblock %}

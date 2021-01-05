@@ -4,6 +4,7 @@ $('.tool').on('click', function(e) {
   $('.tool').removeClass('selected');
   $(this).addClass('selected');
   $('.input-panel').addClass('activated');
+  $('#chart').removeClass('activated');
   $('.bottom-bar').addClass("activate-drag");
   openInputPanel();
   e.stopPropagation();
