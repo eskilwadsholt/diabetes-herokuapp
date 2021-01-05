@@ -1,6 +1,22 @@
-function connectMeter(meterDiv, valueDiv, settings) {
+function numericInput(inputSelector, minDigits=1) {
+  let $valueInput = $(inputSelector);
+  $valueInput.on("input", function() {
+    let $valStr = $valueInput.val().replaceAll(".", "").replace(/^0+/, "");
+    if (minDigits) {
+      let $length = $valStr.length;
+      if ($length < minDigits + 1) $valStr = "0".repeat(minDigits + 1 - $length) + $valStr;
+      $length = $valStr.length;
+      $valStr = $valStr.substring(0, $length - minDigits) + "." + $valStr.substring($length - minDigits, $length);
+    }
+    $valueInput.val($valStr);
+  });
+}
+
+function connectMeter(meterDiv, inputID, settings) {
   meterDiv = document.getElementsByClassName(meterDiv)[0];
-  valueDiv = document.getElementsByClassName(valueDiv)[0];
+  let $valueInput = $(inputID);
+  numericInput(inputID);
+
   let meter = null;
   let scales = { "x": null, "y": null};
   let mouseDownX = 0;
@@ -67,11 +83,11 @@ function connectMeter(meterDiv, valueDiv, settings) {
       let dx = scales.x.invert(newX) - scales.x.invert(mouseDownX);
       xMid -= dx;
       xMid = clamp(xMid, settings.xmin, settings.xmax);
+      mouseDownX = newX;
       let dy = scales.y.invert(newY) - scales.y.invert(mouseDownY);
       let zoomFactor = Math.pow(2, - dy / 10);
       xWindowWidth = clamp(xWindowWidthStart * zoomFactor, settings.minzoom, settings.maxzoom);
       redrawAxis();
-      mouseDownX = newX;
     }
   }
 
@@ -107,7 +123,7 @@ function connectMeter(meterDiv, valueDiv, settings) {
   }
 
   function updateVal() {
-    $(valueDiv).text(xMid.toFixed(1));
+    $valueInput.val(xMid.toFixed(1));
   }
 
   function computeXAxes() {

@@ -1,24 +1,32 @@
 <!-- Bottom tool bar -->
 <div class="bottom-bar">
-  <div class="tool blood">
+  <!--div class="tool blood">
     💧
+  </!--div-->
+  <div class="tool blood">
+    <img src="{{ url_for('static', filename='img/droplet.svg') }}" width="32" height="32">
   </div>
   <div class="tool insulin">
-    💉
+    <!--💉-->
+    <div class="pump-svg-position">
+      <img src="{{ url_for('static', filename='img/pump.svg') }}" width="44" height="44">
+    </div>
   </div>
   <!-- Plus Button -->
-  <div class="btn-plus">
-    <div class="plus-symbol">
-        &#65291;
-    </div>
-    <div class="minus-symbol">
-        &#65293;
+  <div class="vertical-drag-container">
+    <div class="btn-plus">
+      <div id="rect1"></div>
+      <div id="rect2"></div>
     </div>
   </div>
   <div class="tool meal">
-    🍽
+    <!--🍽-->
+    <div class="meal-svg-position">
+      <img src="{{ url_for('static', filename='img/food.svg') }}" width="44" height="44">
+    </div>
   </div>
   <div class="tool note">
-    🗒
+    <!--🗒-->
+    <img src="{{ url_for('static', filename='img/notepad.svg') }}" width="36" height="36">
   </div>
 </div>

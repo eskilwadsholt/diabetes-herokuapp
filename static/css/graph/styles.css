@@ -87,14 +87,20 @@ html, body {
 /* Make the chart container fill the page using CSS. */
 #chart {
     display: flex;
+    visibility: hidden;
     flex-direction: column;
     position: absolute;
     left: 0px;
     top: 0px;
-    right: 0px;
-    bottom: 0px;
+    height: 100%;
+    width: 100%;
     cursor: crosshair;
 }
+
+#chart.activated {
+    visibility: visible;
+}
+
 .upperChart, .lowerChart {
     position: relative;
     box-sizing: border-box;
