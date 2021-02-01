@@ -3,8 +3,6 @@ import uuid
 from passlib.hash import pbkdf2_sha256
 from app import user_db, data_db
 
-pepper = "This is nice, but not important"
-
 class Data:
   def submitBolus(self):
     data = request.json
