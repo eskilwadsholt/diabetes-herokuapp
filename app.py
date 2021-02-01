@@ -4,10 +4,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-app.secret_key = "Let us see whether it works to have separate secret keys ... It did!"
-
 # Database
-connection_string = "mongodb+srv://eskil-diabetes:kodenSpass!@diabetes-testdb.47dt3.azure.mongodb.net/<dbname>?retryWrites=true&w=majority"
 client = MongoClient(connection_string)
 user_db = client.user_login_system
 data_db = client.data
